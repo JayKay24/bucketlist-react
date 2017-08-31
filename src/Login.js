@@ -3,6 +3,36 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
+handleClick(event){
+    var apiBaseUrl = "http://localhost:4000/api/";
+    var self = this;
+    var payload = {
+        "email": this.state.username,
+        "password": this.state.password
+    }
+    axios.post(apiBaseUrl + 'login', payload)
+        .then(function (response) {
+            console.log(response);
+            if (response.data.code == 200) {
+                console.log("Login successful");
+                var uploadScreen = [];
+                uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
+                self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
+            }
+            else if (response.data.code == 204) {
+                console.log("Username and password do not match");
+                alert("username and password do not match");
+            }
+            else {
+                console.log("Username does not exist");
+                alert("Username does not exist");
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
 class Login extends Component {
     constructor(props) {
         super(props);
