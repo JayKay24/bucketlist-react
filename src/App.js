@@ -11,6 +11,7 @@ class App extends Component {
       uploadScreen:[]
     }
   }
+  /* Set the loginscreen as default page */
   componentWillMount(){
     var loginPage = [];
     loginPage.push(<Loginscreen parentContext={this} />);
@@ -23,13 +24,6 @@ class App extends Component {
       <div className="App">
         {this.state.loginPage}
         {this.state.uploadScreen}
-        // <div className="App-header">
-        //   <img src={logo} className="App-logo" alt="logo" />
-        //   <h2>Welcome to React</h2>
-        // </div>
-        // <p className="App-intro">
-        //   To get started, edit <code>src/App.js</code> and save to reload.
-        // </p>
       </div>
     );
   }

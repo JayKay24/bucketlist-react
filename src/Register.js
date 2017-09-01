@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import RaiseButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import Login from './Login'
@@ -35,6 +35,7 @@ class Register extends Component {
                             onChange={(event, newValue) =>
                                 this.setState({ password: newValue })}
                         />
+                        <br />
                         <TextField
                             type="password"
                             hintText="Confirm your password"
