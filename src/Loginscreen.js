@@ -16,6 +16,9 @@ class Loginscreen extends Component {
             isLogin: true
         }
     }
+    /* Switch between the login and registration component
+    based on the value of isLogin flag initially set to true
+    in the constructor method */
     handleClick(event) {
         console.log("event", event);
         var loginmessage;
