@@ -78,6 +78,8 @@ class Register extends Component {
                         buttonLabel: "Register",
                         isLogin: true
                     });
+                } else if (response.data.code == 400){
+                    console.log(response.data)
                 }
             })
             .catch(function (error) {
