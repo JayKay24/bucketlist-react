@@ -15,13 +15,13 @@ class Login extends Component {
         }
     }
     handleClick(event) {
-        var apiBaseUrl = "http://localhost:5000/api/v1/auth/login/";
+        var apiBaseUrl = "http://localhost:5000/api/v1/auth/";
         var self = this;
         var payload = {
             "email": this.state.username,
             "password": this.state.password
         }
-        axios.post(apiBaseUrl + 'login', payload)
+        axios.post(apiBaseUrl + 'login/', payload)
             .then(function (response) {
                 console.log(response);
                 if (response.data.code == 200) {
