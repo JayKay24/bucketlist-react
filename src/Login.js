@@ -4,17 +4,21 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-import UploadScreen from './Uploadscreen'
+// import UploadScreen from './Uploadscreen'
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            access_token: ''
         }
     }
     render() {
+        if (this.state.access_token) {
+            window.sessionStorage.access_token = `Bearer ${this.state.access_token}`
+        }
         return (
             <div>
                 <MuiThemeProvider>
@@ -53,8 +57,9 @@ class Login extends Component {
                 if (response.data.code == 200) {
                     console.log("Login successful");
                     var uploadScreen = [];
-                    uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
+                    // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
                     self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
+                    this.setState({ access_token: response.data['access_tokens'] })
                 }
                 else if (response.data.code == 204) {
                     console.log("Username and password do not match");
