@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-import UploadScreen from './Bucketlists'
+import UploadScreen from './Uploadscreen'
 
 class Login extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class Login extends Component {
                             hintText="Enter your Password"
                             floatingLabelText="Password"
                             onChange={(event, newValue) =>
-                            this.setState({ password: newValue })} />
+                                this.setState({ password: newValue })} />
                         <br />
                         <RaisedButton label="Submit" primary={true}
                             style={style} onClick={(event) => this.handleClick(event)} />
