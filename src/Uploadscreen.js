@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardHeader } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -11,8 +11,13 @@ class UploadScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bkt_name: ''
+            bkt_name: '',
+            access_token: '',
+            error: ''
         }
+    }
+    componentDidMount() {
+        this.getToken();
     }
     render() {
         return (
@@ -36,6 +41,38 @@ class UploadScreen extends Component {
                 </MuiThemeProvider>
             </div>
         );
+    }
+    getToken() {
+        const access_token = window.sessionStorage.access_token;
+        if (access_token) {
+            this.setState({
+                access_token: access_token
+            });
+        } else {
+            this.setState({
+                error: "Token was not found"
+            });
+        }
+    }
+    handleClick(event) {
+        var apiBaseUrl = "http://localhost:5000/api/v1/bucketlists/";
+        var self = this;
+        var payload = {
+            "bkt_name": this.state.bkt_name
+        }
+        axios({
+            method: 'post',
+            url: apiBaseUrl,
+            data: payload,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": this.state.access_token
+            }
+        }).then(function (response) {
+            if (response.data.code == 200) {
+                console.log("Bucketlist successfully added");
+            }
+        })
     }
 }
 

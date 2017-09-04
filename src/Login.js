@@ -16,9 +16,9 @@ class Login extends Component {
         }
     }
     render() {
-        if (this.state.access_token) {
-            window.sessionStorage.access_token = `Bearer ${this.state.access_token}`
-        }
+        // if (this.state.access_token) {
+        //     window.sessionStorage.access_token = `Bearer ${this.state.access_token}`
+        // }
         return (
             <div>
                 <MuiThemeProvider>
@@ -54,12 +54,13 @@ class Login extends Component {
         axios.post(apiBaseUrl + 'login/', payload)
             .then(function (response) {
                 console.log(response);
+                window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`
                 if (response.data.code == 200) {
                     console.log("Login successful");
                     var uploadScreen = [];
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
                     self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
-                    this.setState({ access_token: response.data['access_tokens'] })
+                    this.setState({ access_token: response.data['access_token'] })
                 }
                 else if (response.data.code == 204) {
                     console.log("Username and password do not match");
