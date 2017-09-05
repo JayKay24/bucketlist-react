@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader } from 'material-ui/Card';
+import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 // import login from './Login'
 
-class UploadScreen extends Component {
+class ShowBucketlists extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bkt_name: '',
-            access_token: '',
+            bucketlists: [],
             error: ''
         }
     }
@@ -24,19 +24,9 @@ class UploadScreen extends Component {
             <div>
                 <MuiThemeProvider>
                     <div>
-                        <AppBar title="Bucketlists" />
-                        <form>
-                            <h2>Please enter a Bucket list</h2>
-                            <TextField
-                                hintText="Enter your bucketlist"
-                                floatingLabelFixed="Bucket list"
-                                onChange={(event, newValue) =>
-                                    this.setState({ bkt_name: newValue })}
-                            />
-                            <br />
-                            <RaisedButton label="Submit" primary={true}
-                                style={style} onClick={(event) => this.handleClick(event)} />
-                        </form>
+                        <AppBar title="All Bucket lists" />
+                        <h2>Here are your current bucket lists</h2>
+
                     </div>
                 </MuiThemeProvider>
             </div>
@@ -61,18 +51,21 @@ class UploadScreen extends Component {
             "bkt_name": this.state.bkt_name
         }
         axios({
-            method: 'post',
+            method: 'get',
             url: apiBaseUrl,
-            data: payload,
             headers: {
+                "Accept": "application/json",
                 "Content-Type": "application/json",
                 "Authorization": this.state.access_token
             }
         }).then(function (response) {
+            console.log("RESPONSE", response.data)
+
             if (response.data.code == 200) {
-                console.log("Bucketlist successfully added");
+                console.log(response.data)
+                this.setState({ bucketlists: response.data })
             }
-        })
+        }.bind(this));
         this.setState({ bkt_name: '' })
     }
 }
@@ -80,4 +73,4 @@ class UploadScreen extends Component {
 const style = {
     margin: 15,
 };
-export default UploadScreen;
+export default ShowBucketlists;

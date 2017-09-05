@@ -55,12 +55,13 @@ class Login extends Component {
             .then(function (response) {
                 console.log(response);
                 window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`
-                if (response.data.code == 200) {
+                if (response.status == 200) {
                     console.log("Login successful");
                     var uploadScreen = [];
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
-                    self.props.appContext.setState({ loginPage: [], uploadScreen: uploadScreen })
                     this.setState({ access_token: response.data['access_token'] })
+                    console.log(this.props)
+                    this.props.history.push("/add-bucketlist");
                 }
                 else if (response.data.code == 204) {
                     console.log("Username and password do not match");
@@ -70,7 +71,7 @@ class Login extends Component {
                     // console.log("Username does not exist");
                     // alert("Username does not exist");
                 }
-            })
+            }.bind(this))
             .catch(function (error) {
                 console.log(error);
             });

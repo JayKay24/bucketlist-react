@@ -7,20 +7,25 @@ import registerServiceWorker from './registerServiceWorker';
 // import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import App from './App'
-import UploadScreen from './Uploadscreen'
-import Register from './Register'
-import Login from './Login'
+import UploadScreen from './Uploadscreen';
+import Register from './Register';
+import Login from './Login';
+import ShowBucketlists from './Showbucketlists';
 
 ReactDOM.render(
-    <Router>
-        <div>
-            <Route exact path="/" component={App} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/addbucketlist" component={UploadScreen} />
-        </div>
-    </Router>,
+    <MuiThemeProvider>
+        <Router>
+            <div>
+                <Route exact path="/" component={App} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/add-bucketlist" component={UploadScreen} />
+                <Route exact path="/show-bucketlists" component={ShowBucketlists} />
+            </div>
+        </Router>
+    </MuiThemeProvider>,
     document.getElementById('root')
 )
 
