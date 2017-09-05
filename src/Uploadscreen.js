@@ -55,6 +55,7 @@ class UploadScreen extends Component {
         }
     }
     handleClick(event) {
+        event.preventDefault();
         var apiBaseUrl = "http://localhost:5000/api/v1/bucketlists/";
         var self = this;
         var payload = {
@@ -69,10 +70,11 @@ class UploadScreen extends Component {
                 "Authorization": this.state.access_token
             }
         }).then(function (response) {
-            if (response.data.code == 200) {
+            if (response.status == 201) {
                 console.log("Bucketlist successfully added");
+                this.props.history.push("/show-bucketlists");
             }
-        })
+        }.bind(this))
         this.setState({ bkt_name: '' })
     }
 }

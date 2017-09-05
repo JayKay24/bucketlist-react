@@ -1,36 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Register from './Register';
 import Loginscreen from './Loginscreen';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      loginPage:[],
-      uploadScreen:[]
-    }
+    // this.state = {
+    //   regist
+    // }
   }
   /* Set the loginscreen as default page */
-  componentWillMount(){
-    var loginPage = [];
-    loginPage.push(<Loginscreen parentContext={this} />);
-    this.setState({
-      loginPage:loginPage
-    })
-  }
+  // componentWillMount() {
+  //   var loginPage = [];
+  //   loginPage.push(<Loginscreen parentContext={this} />);
+  //   this.setState({
+  //     loginPage: loginPage
+  //   })
+  // }
   render() {
     return (
       <div className="App">
-        {this.state.loginPage}
-        {this.state.uploadScreen}
+        {Register}
       </div>
     );
   }
 }
 
 const style = {
-  margin:15,
+  margin: 15,
 };
 
 export default App;

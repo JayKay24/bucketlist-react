@@ -26,7 +26,7 @@ class Login extends Component {
                         <AppBar title="login" />
                         <TextField
                             hintText="Enter your Username"
-                            floatingLabelFixed="Username"
+                            floatingLabelText="Username"
                             onChange={(event, newValue) =>
                                 this.setState({ username: newValue })} />
                         <br />
@@ -61,15 +61,15 @@ class Login extends Component {
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
                     this.setState({ access_token: response.data['access_token'] })
                     console.log(this.props)
+                    // Redirect to the page to add a bucket list
                     this.props.history.push("/add-bucketlist");
                 }
-                else if (response.data.code == 204) {
+                else if (response.status == 204) {
                     console.log("Username and password do not match");
                     alert("username and password do not match");
                 }
                 else {
-                    // console.log("Username does not exist");
-                    // alert("Username does not exist");
+                    this.props.history.push("/login");
                 }
             }.bind(this))
             .catch(function (error) {

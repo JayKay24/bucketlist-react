@@ -67,21 +67,12 @@ class Register extends Component {
         axios.post(apiBaseUrl + 'auth/register/', payload)
             .then(function (response) {
                 console.log(response);
-                if (response.data.code == 200) {
-                    console.log("registration successful");
-                    var loginscreen = [];
-                    loginscreen.push(<Login parentContext={this} />);
-                    var loginmessage = "Not Registered yet. Go to registration";
-                    self.props.parentContext.setState({
-                        loginscreen: loginscreen,
-                        loginmessage: loginmessage,
-                        buttonLabel: "Register",
-                        isLogin: true
-                    });
-                } else if (response.data.code == 400){
+                if (response.status == 201) {
+                    this.props.history.push("/login");
+                } else if (response.data.code == 400) {
                     console.log(response.data)
                 }
-            })
+            }.bind(this))
             .catch(function (error) {
                 console.log(error);
             });
