@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import NavigationDrawer from './MenuDrawer';
 import axios from 'axios';
 // import UploadScreen from './Uploadscreen'
 
@@ -20,10 +21,14 @@ class Login extends Component {
         //     window.sessionStorage.access_token = `Bearer ${this.state.access_token}`
         // }
         return (
+
             <div>
                 <MuiThemeProvider>
                     <div>
-                        <AppBar title="login" />
+                        <NavigationDrawer />
+                    </div>
+                    <div>
+                        <AppBar title="Log in" />
                         <TextField
                             hintText="Enter your Username"
                             floatingLabelText="Username"
