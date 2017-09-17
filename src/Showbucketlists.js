@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardActions, CardText, CardTitle } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -50,25 +50,34 @@ class ShowBucketlists extends Component {
             })
     }
     render() {
-        const data = this.state.bucketlists
-        const renderItems = data.map(function (bucketlist, i) {
-            return (<li key={i}>{bucketlist.bkt_name}</li>)
-        });
+        const data = this.state.bucketlists;
+
         return (
             <div>
                 <MuiThemeProvider>
                     <div>
                         <AppBar title="All Bucket lists" />
                         <h2>Here are your current bucket lists</h2>
-                        <ul>
-                            {renderItems}
-                        </ul>
+                        {<BucketLists bucketlists={data} />}
                     </div>
                 </MuiThemeProvider>
             </div>
         );
     }
 }
+
+const BucketLists = ({ bucketlists }) =>
+    <div>
+        {bucketlists.map((bucketlist) =>
+            <Card key={bucketlist.bkt_name}>
+                <CardTitle title={bucketlist.bkt_name} />
+                <CardActions>
+                    <FlatButton label="Delete" />
+                    <FlatButton label="Edit" />
+                </CardActions>
+            </Card>
+        )}
+    </div>
 
 const style = {
     margin: 15,
