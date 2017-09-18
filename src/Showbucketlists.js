@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader, CardActions, CardText, CardTitle } from 'material-ui/Card';
+import { Card, CardActions, CardTitle } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
 import axios from 'axios';
 
 const URL = 'http://localhost:5000/api/v1/bucketlists/'
@@ -29,8 +27,7 @@ class ShowBucketlists extends Component {
             .then(function (response) {
                 this.props.history.push("show-bucketlists");
             }
-            );
-        this.props.history.push('/show-bucketlists');
+            ).bind(this);
     }
 
     getToken() {
@@ -46,7 +43,7 @@ class ShowBucketlists extends Component {
         }
     }
     componentDidMount() {
-        this.getToken;
+        this.getToken();
         axios({
             method: 'get',
             url: URL,
