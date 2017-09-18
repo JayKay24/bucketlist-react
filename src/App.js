@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './css/App.css';
 import Register from './Register';
-import Loginscreen from './Loginscreen';
 
 class App extends Component {
   constructor(props) {
