@@ -53,7 +53,6 @@ class Login extends Component {
     }
     handleClick(event) {
         var apiBaseUrl = "http://localhost:5000/api/v1/auth/";
-        var self = this;
         var payload = {
             "username": this.state.username,
             "password": this.state.password
@@ -62,16 +61,15 @@ class Login extends Component {
             .then(function (response) {
                 console.log(response);
                 window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`
-                if (response.status == 200) {
+                if (response.status === 200) {
                     console.log("Login successful");
-                    var uploadScreen = [];
                     // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
                     this.setState({ access_token: response.data['access_token'] })
                     console.log(this.props)
                     // Redirect to the page to add a bucket list
                     this.props.history.push("/add-bucketlist");
                 }
-                else if (response.status == 204) {
+                else if (response.status === 204) {
                     console.log("Username and password do not match");
                     alert("username and password do not match");
                 }
