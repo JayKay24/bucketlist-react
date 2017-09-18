@@ -17,6 +17,14 @@ class ShowBucketlists extends Component {
         }
         this.getToken = this.getToken.bind(this);
         this.deleteBucketList = this.deleteBucketList.bind(this);
+        this.editBucketList = this.editBucketList.bind(this);
+    }
+
+    editBucketList(id, name) {
+        console.log(id);
+        window.sessionStorage.bkt_id = id;
+        window.sessionStorage.bkt_name = name;
+        this.props.history.push("edit-bucketlists");
     }
 
     deleteBucketList(id) {
@@ -75,7 +83,7 @@ class ShowBucketlists extends Component {
                                     <CardTitle title={bucketlist.bkt_name} />
                                     <CardActions>
                                         <FlatButton label="Delete" onClick={(event) => this.deleteBucketList(bucketlist.id)} />
-                                        <FlatButton label="Edit" />
+                                        <FlatButton label="Edit" onClick={(event) => this.editBucketList(bucketlist.id, bucketlist.bkt_name)} />
                                     </CardActions>
                                 </Card>
                             )}
