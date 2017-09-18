@@ -13,6 +13,7 @@ import UploadScreen from './Uploadscreen';
 import Register from './Register';
 import Login from './Login';
 import ShowBucketlists from './Showbucketlists';
+import EditBucketList from './Editbucketlist';
 
 ReactDOM.render(
     <MuiThemeProvider>
@@ -23,6 +24,7 @@ ReactDOM.render(
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/add-bucketlist" component={UploadScreen} />
                 <Route exact path="/show-bucketlists" component={ShowBucketlists} />
+                <Route exact path="/edit-bucketlists" component={EditBucketList} />
             </div>
         </Router>
     </MuiThemeProvider>,
