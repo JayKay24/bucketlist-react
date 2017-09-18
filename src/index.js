@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { Route, IndexRoute } from 'react-router';
 import ReactDOM from 'react-dom';
 import './css/index.css';
