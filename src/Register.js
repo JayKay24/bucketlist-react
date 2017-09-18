@@ -4,7 +4,6 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-import Login from './Login'
 
 class Register extends Component {
     constructor(props) {
@@ -58,7 +57,6 @@ class Register extends Component {
 
         console.log("values", this.state.username, this.state.password);
         // To be done, check for empty values before hitting submit
-        var self = this;
         var payload = {
             "username": this.state.username,
             "password": this.state.password,
@@ -67,9 +65,9 @@ class Register extends Component {
         axios.post(apiBaseUrl + 'auth/register/', payload)
             .then(function (response) {
                 console.log(response);
-                if (response.status == 201) {
+                if (response.status === 201) {
                     this.props.history.push("/login");
-                } else if (response.data.code == 400) {
+                } else if (response.data.code === 400) {
                     console.log(response.data)
                 }
             }.bind(this))
