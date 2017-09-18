@@ -25,7 +25,7 @@ class ShowBucketlists extends Component {
         axios.delete(apiBaseUrl,
             { headers: { "Content-Type": "application/json", "Authorization": window.sessionStorage.access_token } })
             .then(function (response) {
-                this.props.history.push("show-bucketlists");
+                window.location.reload();
             }
             ).bind(this);
     }
