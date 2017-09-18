@@ -25,25 +25,27 @@ class Login extends Component {
             <div>
                 <MuiThemeProvider>
                     <div>
-                        <NavigationDrawer />
-                    </div>
-                    <div>
-                        <AppBar title="Log in" />
-                        <TextField
-                            hintText="Enter your Username"
-                            floatingLabelText="Username"
-                            onChange={(event, newValue) =>
-                                this.setState({ username: newValue })} />
-                        <br />
-                        <TextField
-                            type="password"
-                            hintText="Enter your Password"
-                            floatingLabelText="Password"
-                            onChange={(event, newValue) =>
-                                this.setState({ password: newValue })} />
-                        <br />
-                        <RaisedButton label="Submit" primary={true}
-                            style={style} onClick={(event) => this.handleClick(event)} />
+                        <div>
+                            <NavigationDrawer />
+                        </div>
+                        <div>
+                            <AppBar title="Log in" />
+                            <TextField
+                                hintText="Enter your Username"
+                                floatingLabelText="Username"
+                                onChange={(event, newValue) =>
+                                    this.setState({ username: newValue })} />
+                            <br />
+                            <TextField
+                                type="password"
+                                hintText="Enter your Password"
+                                floatingLabelText="Password"
+                                onChange={(event, newValue) =>
+                                    this.setState({ password: newValue })} />
+                            <br />
+                            <RaisedButton label="Submit" primary={true}
+                                style={style} onClick={(event) => this.handleClick(event)} />
+                        </div>
                     </div>
                 </MuiThemeProvider>
             </div>
