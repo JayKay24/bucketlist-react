@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Card, CardHeader } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -57,7 +56,6 @@ class UploadScreen extends Component {
     handleClick(event) {
         event.preventDefault();
         var apiBaseUrl = "http://localhost:5000/api/v1/bucketlists/";
-        var self = this;
         var payload = {
             "bkt_name": this.state.bkt_name
         }
@@ -70,7 +68,7 @@ class UploadScreen extends Component {
                 "Authorization": this.state.access_token
             }
         }).then(function (response) {
-            if (response.status == 201) {
+            if (response.status === 201) {
                 console.log("Bucketlist successfully added");
                 this.props.history.push("/show-bucketlists");
             }
