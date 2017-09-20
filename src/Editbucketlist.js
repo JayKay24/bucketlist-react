@@ -26,7 +26,7 @@ class EditBucketList extends Component {
                 access_token: access_token
             });
         }
-        this.setState({bkt_name: window.sessionStorage.bkt_name});
+        this.setState({ bkt_name: window.sessionStorage.bkt_name });
     }
 
     componentDidMount() {
