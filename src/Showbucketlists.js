@@ -96,19 +96,6 @@ class ShowBucketlists extends Component {
     }
 }
 
-// const BucketLists = ({ bucketlists, onClick }) =>
-//     <div>
-//         {bucketlists.map((bucketlist) =>
-//             <Card key={bucketlist.bkt_name}>
-//                 <CardTitle title={bucketlist.bkt_name} />
-//                 <CardActions>
-//                     <FlatButton label="Delete" onClick={onClick(bucketlist.id)} />
-//                     <FlatButton label="Edit" />
-//                 </CardActions>
-//             </Card>
-//         )}
-//     </div>
-
 const style = {
     margin: 15,
 };

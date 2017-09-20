@@ -6,18 +6,7 @@ import Register from './Register';
 class App extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   regist
-    // }
   }
-  /* Set the loginscreen as default page */
-  // componentWillMount() {
-  //   var loginPage = [];
-  //   loginPage.push(<Loginscreen parentContext={this} />);
-  //   this.setState({
-  //     loginPage: loginPage
-  //   })
-  // }
   render() {
     return (
       <div className="App">

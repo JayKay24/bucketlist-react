@@ -6,7 +6,6 @@ import TextField from 'material-ui/TextField';
 import NavigationDrawer from './MenuDrawer';
 import axios from 'axios';
 import './css/Login.css';
-// import UploadScreen from './Uploadscreen'
 
 class Login extends Component {
     constructor(props) {
@@ -18,9 +17,6 @@ class Login extends Component {
         }
     }
     render() {
-        // if (this.state.access_token) {
-        //     window.sessionStorage.access_token = `Bearer ${this.state.access_token}`
-        // }
         return (
 
             <div className="Login">
@@ -64,10 +60,8 @@ class Login extends Component {
                 window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`
                 if (response.status === 200) {
                     console.log("Login successful");
-                    // uploadScreen.push(<UploadScreen appContext={self.props.appContext} />)
                     this.setState({ access_token: response.data['access_token'] })
                     console.log(this.props)
-                    // Redirect to the page to add a bucket list
                     this.props.history.push("/show-bucketlists");
                 }
                 else if (response.status === 204) {
