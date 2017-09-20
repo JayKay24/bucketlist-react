@@ -4,6 +4,7 @@ import { Card, CardActions, CardTitle } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import axios from 'axios';
+import './css/ShowBucketlists.css';
 
 const URL = 'http://localhost:5000/api/v1/bucketlists/'
 
@@ -72,7 +73,7 @@ class ShowBucketlists extends Component {
         const data = this.state.bucketlists;
 
         return (
-            <div>
+            <div className="ShowBucketLists">
                 <MuiThemeProvider>
                     <div>
                         <AppBar title="All Bucket lists" />
