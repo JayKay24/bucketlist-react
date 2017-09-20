@@ -4,7 +4,7 @@ import { Card, CardActions, CardTitle } from 'material-ui/Card';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import axios from 'axios';
-import './css/ShowBucketlists.css';
+import './css/ShowBucketLists.css';
 
 const URL = 'http://localhost:5000/api/v1/bucketlists/'
 
