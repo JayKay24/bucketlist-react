@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import NavigationDrawer from './MenuDrawer';
 import axios from 'axios';
+import './css/Login.css';
 // import UploadScreen from './Uploadscreen'
 
 class Login extends Component {
@@ -22,7 +23,7 @@ class Login extends Component {
         // }
         return (
 
-            <div>
+            <div className="Login">
                 <MuiThemeProvider>
                     <div>
                         <div>
@@ -67,7 +68,7 @@ class Login extends Component {
                     this.setState({ access_token: response.data['access_token'] })
                     console.log(this.props)
                     // Redirect to the page to add a bucket list
-                    this.props.history.push("/add-bucketlist");
+                    this.props.history.push("/show-bucketlists");
                 }
                 else if (response.status === 204) {
                     console.log("Username and password do not match");
