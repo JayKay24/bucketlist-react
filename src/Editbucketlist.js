@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import NavigationDrawer from './MenuDrawer';
 import axios from 'axios';
+import './css/Editbucketlist.css';
 
 class EditBucketList extends Component {
     constructor(props) {
@@ -56,7 +57,7 @@ class EditBucketList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Editbucketlist">
                 <MuiThemeProvider>
                     <div>
                         <AppBar title="Edit Bucket list" />
