@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
-// import login from './Login'
+import './css/UploadScreen.css';
 
 class UploadScreen extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class UploadScreen extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="UploadScreen">
                 <MuiThemeProvider>
                     <div>
                         <AppBar title="Bucketlists" />
