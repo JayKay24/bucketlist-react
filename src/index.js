@@ -23,8 +23,8 @@ ReactDOM.render(
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/add-bucketlist" component={UploadScreen} />
-                <Route exact path="/show-bucketlists" component={ShowBucketlists} />
-                <Route exact path="/edit-bucketlists" component={EditBucketList} />
+                <Route path="/:userName/show-bucketlists" component={ShowBucketlists} />
+                <Route path="/edit-bucketlists/:id" component={EditBucketList} />
             </div>
         </Router>
     </MuiThemeProvider>,

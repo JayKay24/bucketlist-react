@@ -62,7 +62,8 @@ class Login extends Component {
                     console.log("Login successful");
                     this.setState({ access_token: response.data['access_token'] })
                     console.log(this.props)
-                    this.props.history.push("/show-bucketlists");
+                    // this.props.history.push("/show-bucketlists");
+                    this.props.history.push(`/${response.data['username']}/show-bucketlists`)
                 }
                 else if (response.status === 204) {
                     console.log("Username and password do not match");
