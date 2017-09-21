@@ -25,7 +25,7 @@ class ShowBucketlists extends Component {
         console.log(id);
         window.sessionStorage.bkt_id = id;
         window.sessionStorage.bkt_name = name;
-        this.props.history.push("edit-bucketlists");
+        this.props.history.push(`/edit-bucketlists/${id}`);
     }
 
     deleteBucketList(id) {
