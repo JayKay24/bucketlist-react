@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import NavigationDrawer from './MenuDrawer';
+import FlatButton from 'material-ui/FlatButton';
 import axios from 'axios';
 import './css/Editbucketlist.css';
 
@@ -18,6 +19,7 @@ class EditBucketList extends Component {
 
         this.getToken = this.getToken.bind(this);
         this.handleSave = this.handleSave.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
     }
 
     getToken() {
@@ -55,7 +57,13 @@ class EditBucketList extends Component {
         this.setState({ bkt_name: '' })
     }
 
+    handleCancel(event) {
+        event.preventDefault();
+        this.props.history.push('show-bucketlists');
+    }
+
     render() {
+        console.log("params", this.props);
         return (
             <div className="Editbucketlist">
                 <MuiThemeProvider>
@@ -64,14 +72,16 @@ class EditBucketList extends Component {
                         <form>
                             <h2>Edit your bucket list here</h2>
                             <TextField
-                                hintText={window.sessionStorage.bkt_name}
+                                hintText={window.sessionStorage.bkt_name + ',' + this.props.match.params.id.toString()}
+                                //hintText={this.props.params.id}
                                 floatingLabelFixed="Bucket List"
                                 onChange={(event, newValue) =>
                                     this.setState({ bkt_name: newValue })}
                             />
                             <br />
                             <RaisedButton label="Save" primary={true}
-                                style={style} onClick={(event) => this.handleSave(event, window.sessionStorage.bkt_id)} />
+                                style={style} onClick={(event) => this.handleSave(event, this.props.match.params.id)} />
+                            <FlatButton label="Cancel" onClick={(event) => this.handleCancel(event)} />
                         </form>
                     </div>
                 </MuiThemeProvider>
