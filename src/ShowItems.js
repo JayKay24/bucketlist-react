@@ -17,7 +17,13 @@ var loadOnce = function(){
 }
 
 const bkt_id = window.sessionStorage.bkt_id;
-const URL = 'http://localhost:5000/api/v1/bucketlists/' + bkt_id.toString() + '/bucketlistitems/';
+if (bkt_id === undefined) {
+    const URL = 'None';
+}else{
+    const URL = 'http://localhost:5000/api/v1/bucketlists/' + bkt_id.toString() + '/bucketlistitems/';
+    
+}
+// const URL = 'http://localhost:5000/api/v1/bucketlists/' + bkt_id.toString() + '/bucketlistitems/';
 
 class ShowItems extends Component {
     constructor(props) {
