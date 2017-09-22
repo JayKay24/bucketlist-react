@@ -17,12 +17,13 @@ import EditBucketList from './Editbucketlist';
 import ShowItems from './ShowItems';
 import EditItem from './EditItem';
 import AddItem from './Additem';
+import Start from './Start';
 
 ReactDOM.render(
     <MuiThemeProvider>
         <Router>
             <div>
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={Start} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/:userName/add-bucketlist" component={UploadScreen} />
