@@ -14,6 +14,9 @@ import Register from './Register';
 import Login from './Login';
 import ShowBucketlists from './Showbucketlists';
 import EditBucketList from './Editbucketlist';
+import ShowItems from './ShowItems';
+import EditItem from './EditItem';
+import AddItem from './Additem';
 
 ReactDOM.render(
     <MuiThemeProvider>
@@ -22,9 +25,12 @@ ReactDOM.render(
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/add-bucketlist" component={UploadScreen} />
+                <Route exact path="/:userName/add-bucketlist" component={UploadScreen} />
                 <Route path="/:userName/show-bucketlists" component={ShowBucketlists} />
-                <Route path="/edit-bucketlists/:id" component={EditBucketList} />
+                <Route path="/:userName/edit-bucketlists/:id" component={EditBucketList} />
+                <Route path="/:userName/:id/show-items" component={ShowItems} />
+                <Route path="/:userName/edit-item/:id" component={EditItem} />
+                <Route path="/:userName/:id/add-item/" component={AddItem} />
             </div>
         </Router>
     </MuiThemeProvider>,
