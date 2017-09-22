@@ -14,6 +14,7 @@ class EditBucketList extends Component {
         this.state = {
             bkt_name: '',
             access_token: '',
+            userName: '',
             error: ''
         };
 
@@ -24,9 +25,11 @@ class EditBucketList extends Component {
 
     getToken() {
         const access_token = window.sessionStorage.access_token;
+        const userName = window.sessionStorage.userName;
         if (access_token) {
             this.setState({
-                access_token: access_token
+                access_token: access_token,
+                userName: userName
             });
         }
         this.setState({ bkt_name: window.sessionStorage.bkt_name });
@@ -52,14 +55,14 @@ class EditBucketList extends Component {
             }
         }).then(function (response) {
             console.log("Bucketlist successfully edited");
-            this.props.history.push("/show-bucketlists");
+            this.props.history.push(`/${this.state.userName}/show-bucketlists`);
         }.bind(this))
         this.setState({ bkt_name: '' })
     }
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.history.push('show-bucketlists');
+        this.props.history.push(`/${this.state.userName}/show-bucketlists`);
     }
 
     render() {
