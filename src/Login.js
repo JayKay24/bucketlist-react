@@ -3,7 +3,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import NavigationDrawer from './MenuDrawer';
 import axios from 'axios';
 import './css/Login.css';
 
@@ -22,9 +21,6 @@ class Login extends Component {
             <div className="Login">
                 <MuiThemeProvider>
                     <div>
-                        <div>
-                            <NavigationDrawer />
-                        </div>
                         <div>
                             <AppBar title="Log in" />
                             <TextField
@@ -57,7 +53,8 @@ class Login extends Component {
         axios.post(apiBaseUrl + 'login/', payload)
             .then(function (response) {
                 console.log(response);
-                window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`
+                window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`;
+                window.sessionStorage.userName = response.data['username'];
                 if (response.status === 200) {
                     console.log("Login successful");
                     this.setState({ access_token: response.data['access_token'] })
