@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import './css/UploadScreen.css';
+import FlatButton from 'material-ui/FlatButton';
 
 class UploadScreen extends Component {
     constructor(props) {
@@ -12,8 +13,13 @@ class UploadScreen extends Component {
         this.state = {
             bkt_name: '',
             access_token: '',
+            user_name: '',
             error: ''
-        }
+        };
+        this.handleCancel = this.handleCancel.bind(this);
+    }
+    handleCancel(event) {
+        this.props.history.push(`/${this.state.user_name}/show-bucketlists`);
     }
     componentDidMount() {
         this.getToken();
@@ -35,6 +41,7 @@ class UploadScreen extends Component {
                             <br />
                             <RaisedButton label="Submit" primary={true}
                                 style={style} onClick={(event) => this.handleClick(event)} />
+                            <FlatButton label="Cancel" onClick={(event) => this.handleCancel(event)} />
                         </form>
                     </div>
                 </MuiThemeProvider>
@@ -42,10 +49,12 @@ class UploadScreen extends Component {
         );
     }
     getToken() {
+        const user_name = window.sessionStorage.userName;
         const access_token = window.sessionStorage.access_token;
         if (access_token) {
             this.setState({
-                access_token: access_token
+                access_token: access_token,
+                user_name: user_name
             });
         } else {
             this.setState({
