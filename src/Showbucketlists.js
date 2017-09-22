@@ -24,6 +24,7 @@ class ShowBucketlists extends Component {
         this.editBucketList = this.editBucketList.bind(this);
         this.showItems = this.showItems.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     editBucketList(id, name) {
@@ -55,6 +56,10 @@ class ShowBucketlists extends Component {
         this.props.history.push(`/${this.state.user_name}/add-bucketlist`);
     }
 
+    handleLogout (event){
+        this.props.history.push('/');
+        window.sessionStorage.access_token = '';
+    }
 
     getToken() {
         let access_token = window.sessionStorage.access_token;
@@ -70,6 +75,7 @@ class ShowBucketlists extends Component {
             });
         }
     }
+
     componentDidMount() {
         this.getToken();
 
@@ -100,6 +106,8 @@ class ShowBucketlists extends Component {
                         <NavigationDrawer/>
                         </div>
                         <AppBar title="All Bucket lists" />
+                        <FlatButton label="Logout" onClick={(event) => this.handleLogout(event)} />
+                        <br />
                         <RaisedButton label="Add Bucket list" primary={true} onClick={(event) => this.handleAdd(event)} />
                         <h2>Here are your current bucket lists</h2>
                         <div>
