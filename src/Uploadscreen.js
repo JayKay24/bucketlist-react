@@ -79,7 +79,7 @@ class UploadScreen extends Component {
         }).then(function (response) {
             if (response.status === 201) {
                 console.log("Bucketlist successfully added");
-                this.props.history.push("/show-bucketlists");
+                this.props.history.push(`/${this.state.user_name}/show-bucketlists`);
             }
         }.bind(this))
         this.setState({ bkt_name: '' })
