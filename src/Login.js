@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import './css/Login.css';
+import FlatButton from 'material-ui/FlatButton';
 
 class Login extends Component {
     constructor(props) {
@@ -14,6 +15,11 @@ class Login extends Component {
             password: '',
             access_token: ''
         }
+        this.handleCancel = this.handleCancel.bind(this);
+    }
+    handleCancel(event) {
+        event.preventDefault();
+        this.props.history.push('/');
     }
     render() {
         return (
@@ -38,6 +44,8 @@ class Login extends Component {
                             <br />
                             <RaisedButton label="Submit" primary={true}
                                 style={style} onClick={(event) => this.handleClick(event)} />
+                            <FlatButton label="Cancel" primary={true}
+                                    onClick={(event) => this.handleCancel(event)} />
                         </div>
                     </div>
                 </MuiThemeProvider>

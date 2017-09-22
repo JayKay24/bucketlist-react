@@ -5,6 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
 import './css/Register.css';
+import FlatButton from 'material-ui/FlatButton';
+
 
 class Register extends Component {
     constructor(props) {
@@ -14,6 +16,11 @@ class Register extends Component {
             password: '',
             confirm_password: ''
         }
+        this.handleCancel = this.handleCancel.bind(this);
+    }
+    handleCancel(event) {
+        event.preventDefault();
+        this.props.history.push('/');
     }
     render() {
         return (
@@ -47,6 +54,8 @@ class Register extends Component {
                         <RaisedButton label="Submit" primary={true} style={style}
                             onClick={(event) => this.handleClick(event)}
                         />
+                        <FlatButton label="Cancel" primary={true}
+                                    onClick={(event) => this.handleCancel(event)} />
                     </div>
                 </MuiThemeProvider>
             </div>
