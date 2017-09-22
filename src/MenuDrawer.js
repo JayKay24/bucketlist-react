@@ -14,6 +14,10 @@ export default class NavigationDrawer extends React.Component {
 
     handleClose =  () => this.setState({ open: false });
 
+    handleLogout = function () {
+        window.sessionStorage.access_token = '';
+    }
+
     handleAddBucketlist() {
         this.props.history.push(`/${window.sessionStorage.userName}/add-bucketlist`)
         this.handleClose();  
@@ -34,7 +38,7 @@ export default class NavigationDrawer extends React.Component {
                     onRequestChange={(open) => this.setState({ open })}
                 >
                     <MenuItem onClick={this.handleClose}>Add BucketList</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
                 </Drawer>
             </div>
         );
