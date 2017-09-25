@@ -77,6 +77,9 @@ class Login extends Component {
                     this.props.history.push("/login");
                 }
             }.bind(this));
+        if (!window.sessionStorage.access_token) {
+            alert("Invalid credentials! Please provide correct login information.")
+        }
     }
 
 }
