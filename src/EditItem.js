@@ -53,6 +53,11 @@ class EditItem extends Component {
         var payload = {
             "bkt_item_name": this.state.item_name
         };
+        if (payload.bkt_item_name == window.sessionStorage.bkt_item_name) {
+            alert("A bucketlist item with the same content already exists");
+        } else {
+            alert("Please provide a valid bucket list name");
+        }
         axios({
             method: 'patch',
             url: apiBaseUrl,

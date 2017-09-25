@@ -45,6 +45,11 @@ class EditBucketList extends Component {
         var payload = {
             "bkt_name": this.state.bkt_name
         };
+        if (payload.bkt_name == window.sessionStorage.bkt_name) {
+            alert("A bucketlist with the same content already exists");
+        } else {
+            alert("Please provide a valid bucket list name");
+        }
         axios({
             method: 'patch',
             url: apiBaseUrl,

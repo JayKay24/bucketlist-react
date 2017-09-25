@@ -68,6 +68,9 @@ class UploadScreen extends Component {
         var payload = {
             "bkt_name": this.state.bkt_name
         }
+        if (!payload.bkt_name) {
+            alert("Please enter a valid bucketlist");
+        }
         axios({
             method: 'post',
             url: apiBaseUrl,
