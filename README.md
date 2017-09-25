@@ -56,6 +56,20 @@ Update a bucketlist
 
 ![Alt text](/src/images/edit-bucketlist.png?raw=true "Edit a Bucketlist")
 
+## Examples of responses upon submitting invalid information
+
+Submission of wrong credentials upon loggin in
+
+![Alt text](/src/images/invalid-login.png?raw=true "Wrong credentials")
+
+Submission of empty fields
+
+![Alt text](/src/images/empty-fields.png?raw=true "Empty Fields")
+
+Duplicate values when editing a bucket list
+
+![Alt text](/src/images/edit-duplicate.png?raw=true "Duplicate values when editing")
+
 ## Built using
 
 Bucket List Creator api is built using the following tools:
