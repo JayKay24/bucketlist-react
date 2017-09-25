@@ -44,6 +44,10 @@ login to the api
 
 ![Alt text](/src/images/login.png?raw=true "Login")
 
+Show all bucketlists
+
+![Alt text](/src/images/show-bucketlists.png?raw=true "Show Bucketlists")
+
 Create a bucketlist
 
 ![Alt text](/src/images/add-bucketlist.png?raw=true "Add bucketlist")
