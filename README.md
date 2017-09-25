@@ -32,17 +32,32 @@ Clone the repository using the url:
 git clone https://github.com/JayKay24/bucketlist-react.git
 ```
 
-## Usage:
-         Register with the api
-         login to the api
-         Create a bucketlist
-         Update a bucketlist
-         View your bucketlist(s)
-         Delete your bucketlist
-         Create a bucketlist item
-         Update a bucketlist item
-         View a bucketlist item
-         Delete a bucketlist item
+## Usage
+
+All bucketlist items manipulations use the same interface as for bucketlist manipulations 
+
+Register with the api
+
+![Alt text](/src/images/register.png?raw=true "Register")
+
+login to the api
+
+![Alt text](/src/images/login.png?raw=true "Login")
+
+Create a bucketlist
+
+![Alt text](/src/images/add-bucketlist.png?raw=true "Add bucketlist")
+
+Update a bucketlist
+
+![Alt text](/src/images/edit-bucketlist.png?raw=true "Edit a Bucketlist")
+
+View your bucketlist(s)
+Delete your bucketlist
+Create a bucketlist item
+Update a bucketlist item
+View a bucketlist item
+Delete a bucketlist item
 
 ## Built using
 

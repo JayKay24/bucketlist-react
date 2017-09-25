@@ -13,7 +13,8 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
-            access_token: ''
+            access_token: '',
+            error: ''
         }
         this.handleCancel = this.handleCancel.bind(this);
     }
@@ -45,7 +46,7 @@ class Login extends Component {
                             <RaisedButton label="Submit" primary={true}
                                 style={style} onClick={(event) => this.handleClick(event)} />
                             <FlatButton label="Cancel" primary={true}
-                                    onClick={(event) => this.handleCancel(event)} />
+                                onClick={(event) => this.handleCancel(event)} />
                         </div>
                     </div>
                 </MuiThemeProvider>

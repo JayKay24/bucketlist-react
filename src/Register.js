@@ -14,7 +14,8 @@ class Register extends Component {
         this.state = {
             username: '',
             password: '',
-            confirm_password: ''
+            confirm_password: '',
+            error: ''
         }
         this.handleCancel = this.handleCancel.bind(this);
     }
@@ -28,6 +29,7 @@ class Register extends Component {
                 <MuiThemeProvider>
                     <div>
                         <AppBar title="Register" />
+                        <div>{this.state.error}</div>
                         <TextField
                             hintText="Enter your Username"
                             floatingLabelText="Username"
@@ -55,7 +57,7 @@ class Register extends Component {
                             onClick={(event) => this.handleClick(event)}
                         />
                         <FlatButton label="Cancel" primary={true}
-                                    onClick={(event) => this.handleCancel(event)} />
+                            onClick={(event) => this.handleCancel(event)} />
                     </div>
                 </MuiThemeProvider>
             </div>
@@ -77,8 +79,6 @@ class Register extends Component {
                 console.log(response);
                 if (response.status === 201) {
                     this.props.history.push("/login");
-                } else if (response.data.code === 400) {
-                    console.log(response.data)
                 }
             }.bind(this))
             .catch(function (error) {
