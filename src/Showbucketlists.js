@@ -28,7 +28,6 @@ class ShowBucketlists extends Component {
     }
 
     editBucketList(id, name) {
-        console.log(id);
         window.sessionStorage.bkt_id = id;
         window.sessionStorage.bkt_name = name;
         const userName = window.sessionStorage.userName;
@@ -36,7 +35,6 @@ class ShowBucketlists extends Component {
     }
 
     deleteBucketList(id) {
-        console.log(id);
         var apiBaseUrl = "http://localhost:5000/api/v1/bucketlists/" + id.toString();
         axios.delete(apiBaseUrl,
             { headers: { "Content-Type": "application/json", "Authorization": window.sessionStorage.access_token } })
@@ -46,8 +44,7 @@ class ShowBucketlists extends Component {
             ).bind(this);
     }
 
-    showItems(id){
-        console.log(id);
+    showItems(id) {
         window.sessionStorage.bkt_id = id;
         this.props.history.push(`/${window.sessionStorage.userName}/${id}/show-items`);
     }
@@ -56,7 +53,7 @@ class ShowBucketlists extends Component {
         this.props.history.push(`/${this.state.user_name}/add-bucketlist`);
     }
 
-    handleLogout (event){
+    handleLogout(event) {
         this.props.history.push('/');
         window.sessionStorage.access_token = '';
     }
@@ -91,9 +88,6 @@ class ShowBucketlists extends Component {
                 bucketlists: response.data.results
             });
         }.bind(this))
-            .catch(function (e) {
-                console.log("ERROR ", e);
-            })
     }
     render() {
         const data = this.state.bucketlists;
@@ -103,7 +97,7 @@ class ShowBucketlists extends Component {
                 <MuiThemeProvider>
                     <div>
                         <div>
-                        <NavigationDrawer/>
+                            <NavigationDrawer />
                         </div>
                         <AppBar title="All Bucket lists" />
                         <FlatButton label="Logout" onClick={(event) => this.handleLogout(event)} />

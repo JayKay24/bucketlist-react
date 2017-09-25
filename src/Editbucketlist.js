@@ -54,7 +54,6 @@ class EditBucketList extends Component {
                 "Authorization": this.state.access_token
             }
         }).then(function (response) {
-            console.log("Bucketlist successfully edited");
             this.props.history.push(`/${this.state.userName}/show-bucketlists`);
         }.bind(this))
         this.setState({ bkt_name: '' })
@@ -66,7 +65,6 @@ class EditBucketList extends Component {
     }
 
     render() {
-        console.log("params", this.props);
         return (
             <div className="Editbucketlist">
                 <MuiThemeProvider>
@@ -76,7 +74,6 @@ class EditBucketList extends Component {
                             <h2>Edit your bucket list here</h2>
                             <TextField
                                 hintText={window.sessionStorage.bkt_name + ',' + this.props.match.params.id.toString()}
-                                //hintText={this.props.params.id}
                                 floatingLabelFixed="Bucket List"
                                 onChange={(event, newValue) =>
                                     this.setState({ bkt_name: newValue })}

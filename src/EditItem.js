@@ -39,7 +39,7 @@ class EditItem extends Component {
                 item_name: ''
             });
         }
-        this.setState({item_name: window.sessionStorage.item_name});
+        this.setState({ item_name: window.sessionStorage.item_name });
     }
 
     componentDidMount() {
@@ -62,13 +62,9 @@ class EditItem extends Component {
                 "Authorization": this.state.access_token
             }
         }).then(function (response) {
-            console.log("Bucketlist item successfully edited");
-            console.log(window.sessionStorage.item_id);
-            console.log(this.state.userName);
-            console.log(this.state.item_id);
             this.props.history.push(`/${this.state.userName}/${this.state.bkt_id}/show-items`);
         }.bind(this))
-        this.setState({item_name: ''})
+        this.setState({ item_name: '' })
     }
 
     handleCancel(event) {
@@ -77,7 +73,6 @@ class EditItem extends Component {
     }
 
     render() {
-        console.log("params", this.props);
         return (
             <div className="EditItem">
                 <MuiThemeProvider>
@@ -88,11 +83,11 @@ class EditItem extends Component {
                             <TextField
                                 hintText={window.sessionStorage.item_name + ',' + this.props.match.params.id.toString()}
                                 floatingLabelFixed="Bucket list item"
-                                onChange={(event, newValue) => 
-                                    this.setState({item_name: newValue})}
-                             />
-                             <br />
-                             <RaisedButton label="Save" primary={true} 
+                                onChange={(event, newValue) =>
+                                    this.setState({ item_name: newValue })}
+                            />
+                            <br />
+                            <RaisedButton label="Save" primary={true}
                                 style={style} onClick={(event) => this.handleSave(event, this.props.match.params.id)} />
                             <FlatButton label="Cancel" onClick={(event) => this.handleCancel(event)} />
                         </form>

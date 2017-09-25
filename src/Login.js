@@ -61,27 +61,19 @@ class Login extends Component {
         }
         axios.post(apiBaseUrl + 'login/', payload)
             .then(function (response) {
-                console.log(response);
                 window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`;
                 window.sessionStorage.userName = response.data['username'];
                 if (response.status === 200) {
-                    console.log("Login successful");
                     this.setState({ access_token: response.data['access_token'] })
-                    console.log(this.props)
-                    // this.props.history.push("/show-bucketlists");
                     this.props.history.push(`/${response.data['username']}/show-bucketlists`)
                 }
                 else if (response.status === 204) {
-                    console.log("Username and password do not match");
                     alert("username and password do not match");
                 }
                 else {
                     this.props.history.push("/login");
                 }
-            }.bind(this))
-            .catch(function (error) {
-                console.log(error);
-            });
+            }.bind(this));
     }
 
 }

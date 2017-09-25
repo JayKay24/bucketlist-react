@@ -22,7 +22,7 @@ class AddItem extends Component {
             this.setState({
                 access_token: access_token
             });
-        }else {
+        } else {
             this.setState({
                 error: "Token was not found"
             });
@@ -44,13 +44,12 @@ class AddItem extends Component {
             }
         }).then(function (response) {
             if (response.status === 201) {
-                console.log("Bucket list item successfully added");
                 this.props.history.push(`/${window.sessionStorage.userName}/${window.sessionStorage.bkt_id}/show-items`);
             }
         }.bind(this))
-        this.setState({item_name: ''})
+        this.setState({ item_name: '' })
     }
-    handleCancel (event){
+    handleCancel(event) {
         event.preventDefault();
         this.props.history.push(`/${this.state.userName}/${window.sessionStorage.bkt_id}/show-items`);
     }
@@ -65,11 +64,11 @@ class AddItem extends Component {
                         <AppBar title="Add Bucket list item" />
                         <form>
                             <h2>Please enter a bucket list item</h2>
-                            <TextField 
+                            <TextField
                                 hintText="Enter your bucket list item"
                                 floatingLabelFixed="Bucket list item"
-                                onChange={(event, newValue) => 
-                                    this.setState({item_name: newValue})
+                                onChange={(event, newValue) =>
+                                    this.setState({ item_name: newValue })
                                 }
                             />
                             <br />

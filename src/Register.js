@@ -80,10 +80,7 @@ class Register extends Component {
                 if (response.status === 201) {
                     this.props.history.push("/login");
                 }
-            }.bind(this))
-            .catch(function (error) {
-                console.log(error);
-            });
+            }.bind(this));
     }
 }
 
