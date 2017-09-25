@@ -74,6 +74,10 @@ class Register extends Component {
             "password": this.state.password,
             "confirm_password": this.state.confirm_password
         };
+
+        if (!payload.username || !payload.password || !payload.confirm_password) {
+            alert("Please provide valid details");
+        }
         axios.post(apiBaseUrl + 'auth/register/', payload)
             .then(function (response) {
                 console.log(response);

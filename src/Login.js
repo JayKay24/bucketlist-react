@@ -59,6 +59,9 @@ class Login extends Component {
             "username": this.state.username,
             "password": this.state.password
         }
+        if (!payload.username || !payload.password) {
+            alert("Please enter a valid username and password");
+        }
         axios.post(apiBaseUrl + 'login/', payload)
             .then(function (response) {
                 window.sessionStorage.access_token = `Bearer ${response.data['access_token']}`;
