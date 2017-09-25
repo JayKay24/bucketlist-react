@@ -22,7 +22,6 @@ if (bkt_id === undefined) {
 } else {
     const URL = 'http://localhost:5000/api/v1/bucketlists/' + bkt_id.toString() + '/bucketlistitems/';
 }
-// const URL = 'http://localhost:5000/api/v1/bucketlists/' + bkt_id.toString() + '/bucketlistitems/';
 
 class ShowItems extends Component {
     constructor(props) {
