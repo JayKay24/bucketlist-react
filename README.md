@@ -52,13 +52,6 @@ Update a bucketlist
 
 ![Alt text](/src/images/edit-bucketlist.png?raw=true "Edit a Bucketlist")
 
-View your bucketlist(s)
-Delete your bucketlist
-Create a bucketlist item
-Update a bucketlist item
-View a bucketlist item
-Delete a bucketlist item
-
 ## Built using
 
 Bucket List Creator api is built using the following tools:
