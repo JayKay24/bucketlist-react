@@ -20,7 +20,6 @@ class Loginscreen extends Component {
     based on the value of isLogin flag initially set to true
     in the constructor method */
     handleClick(event) {
-        console.log("event", event);
         var loginmessage;
         if (this.state.isLogin) {
             var loginscreen = [];

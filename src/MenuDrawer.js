@@ -8,11 +8,11 @@ export default class NavigationDrawer extends React.Component {
         super(props);
         this.state = { open: false };
         this.handleAddBucketlist = this.handleAddBucketlist.bind(this);
-    
+
     }
     handleToggle = () => this.setState({ open: !this.state.open });
 
-    handleClose =  () => this.setState({ open: false });
+    handleClose = () => this.setState({ open: false });
 
     handleLogout = function () {
         window.sessionStorage.access_token = '';
@@ -20,11 +20,10 @@ export default class NavigationDrawer extends React.Component {
 
     handleAddBucketlist() {
         this.props.history.push(`/${window.sessionStorage.userName}/add-bucketlist`)
-        this.handleClose();  
-    }; 
+        this.handleClose();
+    };
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <RaisedButton
